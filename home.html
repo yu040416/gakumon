@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ガクモン ホーム</title>
+
+<style>
+
+/* ===== 全体 ===== */
+body{
+    margin:0;
+    font-family:"Noto Sans JP",sans-serif;
+    display:flex;
+    background:#E8F3F2;
+}
+
+/* ===== サイドバー ===== */
+.sidebar{
+    width:220px;
+    min-height:100vh;
+    background:#0B4F5C;
+    color:white;
+    padding:20px;
+    box-sizing:border-box;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    margin-bottom:30px;
+}
+
+.menu{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:white;
+    padding:12px;
+    border-radius:8px;
+    transition:0.3s;
+}
+
+.menu a:hover{
+    background:#136677;
+}
+
+.active{
+    background:white;
+    color:#0B4F5C !important;
+    font-weight:bold;
+}
+
+/* ===== メイン画面 ===== */
+.content{
+    flex:1;
+    padding:30px;
+}
+
+/* ===== モンスターカード ===== */
+.monster-card{
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.exp-bar{
+    width:100%;
+    height:20px;
+    background:#ddd;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.exp-fill{
+    width:40%;
+    height:100%;
+    background:#F2A33A;
+}
+
+/* ===== 単元カード ===== */
+.unit-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:16px;
+}
+
+.unit-card{
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.teach-btn{
+    border:none;
+    background:#0B4F5C;
+    color:white;
+    padding:12px 24px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.teach-btn:hover{
+    opacity:0.9;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- サイドバー -->
+<div class="sidebar">
+
+    <div class="logo">
+        ガクモン
+    </div>
+
+    <div class="menu">
+        <a href="#" class="active">ホーム</a>
+        <a href="#">モンスター</a>
+        <a href="#">学習履歴</a>
+        <a href="#">図鑑</a>
+    </div>
+
+</div>
+
+<!-- メイン画面 -->
+<div class="content">
+
+    <h1>きょうは何を教える？</h1>
+
+    <div class="monster-card">
+        <h3>タマゴ</h3>
+
+        <div class="exp-bar">
+            <div class="exp-fill"></div>
+        </div>
+
+        <p>経験値 12 / 30</p>
+    </div>
+
+    <h2>単元カード</h2>
+
+    <div class="unit-list">
+
+        <div class="unit-card">
+            <h3>正の数・負の数</h3>
+            <p>おすすめ 1番目</p>
+            <p>テスト：まだ受けていません</p>
+            <button class="teach-btn">教える</button>
+        </div>
+
+        <div class="unit-card">
+            <h3>文字式</h3>
+            <p>おすすめ 2番目</p>
+            <p>テスト：まだ受けていません</p>
+            <button class="teach-btn">教える</button>
+        </div>
+
+        <div class="unit-card">
+            <h3>一次方程式</h3>
+            <p>おすすめ 3番目</p>
+            <p>テスト：まだ受けていません</p>
+            <button class="teach-btn">教える</button>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
