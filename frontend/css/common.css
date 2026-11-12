@@ -1,0 +1,56 @@
+/* ===== 全体 ===== */
+
+body{
+    margin:0;
+    font-family:"Noto Sans JP",sans-serif;
+    display:flex;
+    background:#E8F3F2;
+}
+
+/* ===== サイドバー ===== */
+
+.sidebar{
+    width:220px;
+    min-height:100vh;
+    background:#0B4F5C;
+    color:white;
+    padding:20px;
+    box-sizing:border-box;
+}
+
+.logo{
+    font-size:28px;
+    font-weight:bold;
+    margin-bottom:30px;
+}
+
+.menu{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:white;
+    padding:12px;
+    border-radius:8px;
+    transition:0.3s;
+}
+
+.menu a:hover{
+    background:#136677;
+}
+
+.menu a.active{
+    background:white;
+    color:#0B4F5C;
+    font-weight:bold;
+}
+
+/* ===== 共通コンテンツ領域 ===== */
+
+.content{
+    flex:1;
+    padding:30px;
+}

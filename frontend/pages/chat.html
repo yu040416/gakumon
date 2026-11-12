@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ガクモン - 教える</title>
+
+    <!-- 共通CSS -->
+    <link rel="stylesheet" href="../css/common.css">
+
+    <!-- W03専用CSS -->
+    <link rel="stylesheet" href="../css/chat.css">
+</head>
+
+<body>
+
+    <!-- サイドバー -->
+    <div class="sidebar">
+
+        <div class="logo">
+            ガクモン
+        </div>
+
+        <div class="menu">
+            <a href="home.html">ホーム</a>
+            <a href="monster.html">モンスター</a>
+            <a href="history.html">学習履歴</a>
+            <a href="library.html">図鑑</a>
+        </div>
+
+    </div>
+
+    <!-- メイン画面 -->
+    <div class="content">
+
+        <!-- ヘッダー -->
+        <div class="chat-header">
+
+            <button class="back-btn">
+                戻る
+            </button>
+
+            <div class="subject-title">
+                正の数・負の数
+            </div>
+
+        </div>
+
+        <!-- モンスター -->
+        <div class="monster-info">
+            <h3>チビモン</h3>
+        </div>
+
+        <!-- レイアウト -->
+        <div class="chat-layout">
+
+            <!-- チャット部分 -->
+            <div class="chat-main">
+
+                <div class="chat-box" id="chatBox">
+
+                    <div class="message monster">
+                        <div class="bubble">
+                            正の数・負の数について教えて！
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- 記号ボタン -->
+                <div class="symbol-area">
+
+                    <button class="symbol-btn">＋</button>
+                    <button class="symbol-btn">－</button>
+                    <button class="symbol-btn">×</button>
+                    <button class="symbol-btn">÷</button>
+                    <button class="symbol-btn">＝</button>
+                    <button class="symbol-btn">( )</button>
+                    <button class="symbol-btn">x</button>
+                    <button class="symbol-btn">x²</button>
+                    <button class="symbol-btn">√</button>
+
+                </div>
+
+                <!-- 入力エリア -->
+                <div class="input-area">
+
+                    <input
+                        type="text"
+                        id="chatInput"
+                        class="chat-input"
+                        placeholder="モンスターに説明しよう">
+
+                    <button
+                        id="sendButton"
+                        class="send-btn">
+                        送信
+                    </button>
+
+                </div>
+
+                <!-- テストボタン -->
+                <div class="test-area">
+                    <button class="test-btn">
+                        テストを受けさせる
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- ノート -->
+            <div class="note-area">
+
+                <div class="note-card">
+
+                    <h3>ノート</h3>
+
+                    <ul>
+                        <li>負の数は0より小さい数</li>
+                        <li>-3 + 5 = 2</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <script src="../js/chat.js"></script>
+
+</body>
+</html>

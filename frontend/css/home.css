@@ -1,0 +1,51 @@
+/* ===== モンスターカード ===== */
+
+.monster-card{
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:20px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.exp-bar{
+    width:100%;
+    height:20px;
+    background:#ddd;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.exp-fill{
+    width:40%;
+    height:100%;
+    background:#F2A33A;
+}
+
+/* ===== 単元カード ===== */
+
+.unit-list{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:16px;
+}
+
+.unit-card{
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.teach-btn{
+    border:none;
+    background:#0B4F5C;
+    color:white;
+    padding:12px 24px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.teach-btn:hover{
+    opacity:0.9;
+}

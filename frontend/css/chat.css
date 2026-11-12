@@ -1,0 +1,167 @@
+/* ===== ヘッダー ===== */
+
+.chat-header{
+    display:flex;
+    align-items:center;
+    gap:15px;
+    margin-bottom:20px;
+}
+
+.back-btn{
+    border:none;
+    background:#0B4F5C;
+    color:white;
+    padding:10px 16px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.subject-title{
+    font-size:24px;
+    font-weight:bold;
+}
+
+/* ===== レイアウト ===== */
+
+.chat-layout{
+    display:flex;
+    gap:20px;
+}
+
+.chat-main{
+    flex:3;
+}
+
+.note-area{
+    flex:1;
+}
+
+/* ===== モンスター表示 ===== */
+
+.monster-info{
+    background:white;
+    padding:15px;
+    border-radius:12px;
+    margin-bottom:20px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* ===== チャットエリア ===== */
+
+.chat-box{
+    background:white;
+    height:500px;
+    overflow-y:auto;
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* ===== 吹き出し ===== */
+
+.message{
+    margin-bottom:15px;
+    display:flex;
+}
+
+.message.monster{
+    justify-content:flex-start;
+}
+
+.message.user{
+    justify-content:flex-end;
+}
+
+.bubble{
+    max-width:70%;
+    padding:12px;
+    border-radius:12px;
+}
+
+.monster .bubble{
+    background:#E8F3F2;
+}
+
+.user .bubble{
+    background:#F2A33A;
+    color:white;
+}
+
+/* ===== 記号ボタン ===== */
+
+.symbol-area{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-top:15px;
+}
+
+.symbol-btn{
+    border:none;
+    background:white;
+    padding:8px 12px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.symbol-btn:hover{
+    background:#ddd;
+}
+
+/* ===== 入力欄 ===== */
+
+.input-area{
+    display:flex;
+    gap:10px;
+    margin-top:15px;
+}
+
+.chat-input{
+    flex:1;
+    padding:12px;
+    border-radius:8px;
+    border:1px solid #ccc;
+}
+
+.send-btn{
+    border:none;
+    background:#0B4F5C;
+    color:white;
+    padding:12px 20px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+/* ===== ノート ===== */
+
+.note-card{
+    background:white;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.note-card h3{
+    margin-top:0;
+}
+
+/* ===== テストボタン ===== */
+
+.test-area{
+    margin-top:20px;
+}
+
+.test-btn{
+    width:100%;
+    border:none;
+    background:#F2A33A;
+    color:white;
+    font-size:16px;
+    padding:15px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.test-btn:hover{
+    opacity:0.9;
+}
