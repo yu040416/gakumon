@@ -1,0 +1,32 @@
+.unit-list{
+    display:grid;
+    grid-template-columns:
+        repeat(auto-fit, minmax(250px, 1fr));
+    gap:20px;
+}
+
+.unit-card{
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.unit-card h3{
+    color:#0B4F5C;
+    margin-top:0;
+}
+
+.unit-btn{
+    width:100%;
+    border:none;
+    background:#0B4F5C;
+    color:white;
+    padding:12px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.unit-btn:hover{
+    opacity:0.9;
+}

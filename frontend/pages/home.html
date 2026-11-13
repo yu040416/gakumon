@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ガクモン ホーム</title>
 
     <link rel="stylesheet" href="../css/common.css">
@@ -34,7 +33,9 @@
 
         <h1>きょうは何を教える？</h1>
 
+        <!-- モンスターカード -->
         <div class="monster-card">
+
             <h3>タマゴ</h3>
 
             <div class="exp-bar">
@@ -42,36 +43,54 @@
             </div>
 
             <p>経験値 12 / 30</p>
+
         </div>
 
-        <h2>単元カード</h2>
+        <h2>学年を選択</h2>
 
-        <div class="unit-list">
+        <div class="grade-list">
 
-            <div class="unit-card">
-                <h3>正の数・負の数</h3>
-                <p>おすすめ 1番目</p>
-                <p>テスト：まだ受けていません</p>
-                <button class="teach-btn">教える</button>
+            <div class="grade-card">
+
+                <h3>中学1年</h3>
+
+                <button
+                class="grade-btn"
+                onclick="moveGrade(1)">
+                選択
+                </button>
+
             </div>
 
-            <div class="unit-card">
-                <h3>文字式</h3>
-                <p>おすすめ 2番目</p>
-                <p>テスト：まだ受けていません</p>
-                <button class="teach-btn">教える</button>
+            <div class="grade-card">
+
+                <h3>中学2年</h3>
+
+                <button
+                class="grade-btn"
+                onclick="moveGrade(2)">
+                選択
+                </button>
+
             </div>
 
-            <div class="unit-card">
-                <h3>一次方程式</h3>
-                <p>おすすめ 3番目</p>
-                <p>テスト：まだ受けていません</p>
-                <button class="teach-btn">教える</button>
+            <div class="grade-card">
+
+                <h3>中学3年</h3>
+
+                <button
+                class="grade-btn"
+                onclick="moveGrade(3)">
+                選択
+                </button>
+
             </div>
 
         </div>
 
     </div>
 
+    <script src="../js/home.js"></script>
 </body>
+
 </html>
