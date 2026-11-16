@@ -29,7 +29,8 @@ const questions = [
 let currentIndex = 0;
 let score = 0;
 let mistakes = [];
-let judged = false;
+let selectedJudge = null;
+let selectedReason = null;
 
 const understanding = 80;
 
@@ -58,7 +59,9 @@ loadQuestion();
 
 function loadQuestion() {
 
-    judged = false;
+    selectedJudge = null;
+    selectedReason = null;
+
 
     correctBtn.disabled = false;
     wrongBtn.disabled = false;
@@ -165,20 +168,32 @@ correctBtn.addEventListener(
     "click",
     () => {
 
-        if (judged) {
-            return;
-        }
-
-        judged = true;
-
-        score++;
+        selectedJudge = "correct";
 
         correctBtn.classList.add(
             "selected-correct"
         );
 
-        correctBtn.disabled = true;
-        wrongBtn.disabled = true;
+        wrongBtn.classList.remove(
+            "selected-wrong"
+        );
+
+        document.getElementById(
+            "reasonArea"
+        ).style.display = "none";
+
+        selectedReason = null;
+
+        document
+        .querySelectorAll(".reason-btn")
+        .forEach(btn => {
+
+            btn.classList.remove(
+                "selected-reason"
+            );
+
+        });
+
     }
 );
 
@@ -190,17 +205,20 @@ wrongBtn.addEventListener(
     "click",
     () => {
 
-        if (judged) {
-            return;
-        }
+        selectedJudge = "wrong";
 
         wrongBtn.classList.add(
             "selected-wrong"
         );
 
+        correctBtn.classList.remove(
+            "selected-correct"
+        );
+
         document.getElementById(
             "reasonArea"
         ).style.display = "flex";
+
     }
 );
 
@@ -216,7 +234,65 @@ document
         "click",
         () => {
 
-            if (judged) {
+            document
+            .querySelectorAll(".reason-btn")
+            .forEach(btn => {
+
+                btn.classList.remove(
+                    "selected-reason"
+                );
+
+            });
+
+            button.classList.add(
+                "selected-reason"
+            );
+
+            selectedReason =
+                button.textContent;
+
+        }
+    );
+
+});
+
+/* =====================
+   次へ
+===================== */
+
+nextButton.addEventListener(
+    "click",
+    () => {
+
+        /* ○・×未選択 */
+
+        if(selectedJudge === null){
+
+            alert(
+                "○または×を選択してください。"
+            );
+
+            return;
+        }
+
+        /* ○の場合 */
+
+        if(selectedJudge === "correct"){
+
+            score++;
+
+        }
+
+        /* ×の場合 */
+
+        else{
+
+            if(selectedReason === null){
+
+                alert(
+                    "理由を選択してください。"
+                );
+
                 return;
             }
 
@@ -246,68 +322,20 @@ document
                     q.answer,
 
                 reason:
-                    button.textContent
-
-            });
-
-            document
-            .querySelectorAll(".reason-btn")
-            .forEach(btn => {
-
-                btn.classList.remove(
-                    "selected-reason"
-                );
-
-            });
-
-            button.classList.add(
-                "selected-reason"
-            );
-
-            judged = true;
-
-            wrongBtn.classList.add(
-                "selected-wrong"
-            );
-
-            correctBtn.disabled = true;
-            wrongBtn.disabled = true;
-
-            document
-            .querySelectorAll(".reason-btn")
-            .forEach(btn => {
-
-                btn.disabled = true;
+                    selectedReason
 
             });
 
         }
-    );
-});
 
-/* =====================
-   次へ
-===================== */
-
-nextButton.addEventListener(
-    "click",
-    () => {
-
-        if (!judged) {
-
-            alert(
-                "○または×で採点してください。"
-            );
-
-            return;
-        }
+        /* 次の問題へ */
 
         currentIndex++;
 
-        if (
+        if(
             currentIndex >=
             questions.length
-        ) {
+        ){
 
             localStorage.setItem(
                 "monsterScore",
@@ -321,13 +349,13 @@ nextButton.addEventListener(
                 )
             );
 
-            // =====================
-            // テスト回数をカウント
-            // =====================
+            /* テスト回数加算 */
 
             let testCount =
                 Number(
-                    localStorage.getItem("testCount")
+                    localStorage.getItem(
+                        "testCount"
+                    )
                 ) || 0;
 
             testCount++;
@@ -337,9 +365,7 @@ nextButton.addEventListener(
                 testCount
             );
 
-            // =====================
-            // 結果画面へ移動
-            // =====================
+            /* 結果画面へ */
 
             location.href =
                 "result.html";
@@ -348,5 +374,75 @@ nextButton.addEventListener(
         }
 
         loadQuestion();
+
+    }
+);
+
+/* =====================
+   テスト中断
+===================== */
+
+const quitButton =
+    document.getElementById(
+        "quitButton"
+    );
+
+const quitModal =
+    document.getElementById(
+        "quitModal"
+    );
+
+const confirmQuit =
+    document.getElementById(
+        "confirmQuit"
+    );
+
+const cancelQuit =
+    document.getElementById(
+        "cancelQuit"
+    );
+
+
+quitButton.addEventListener(
+    "click",
+    () => {
+
+        quitModal.style.display =
+            "flex";
+
+    }
+);
+
+
+cancelQuit.addEventListener(
+    "click",
+    () => {
+
+        quitModal.style.display =
+            "none";
+
+    }
+);
+
+
+confirmQuit.addEventListener(
+    "click",
+    () => {
+
+        /* テスト結果破棄 */
+
+        localStorage.removeItem(
+            "monsterScore"
+        );
+
+        localStorage.removeItem(
+            "mistakes"
+        );
+
+        /* 元の単元へ戻る */
+
+        location.href =
+            `chat.html?grade=${localStorage.getItem("currentGrade")}&unit=${localStorage.getItem("currentUnit")}`;
+
     }
 );

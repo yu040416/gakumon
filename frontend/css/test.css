@@ -95,3 +95,114 @@
 .reason-btn:disabled{
     opacity:1;
 }
+
+.quit-area{
+    display:flex;
+    justify-content:flex-end;
+    margin-top:20px;
+}
+
+.quit-btn{
+    border:none;
+    background:#dc3545;
+    color:white;
+    padding:10px 20px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.quit-btn:hover{
+    opacity:0.9;
+}
+
+/* モーダル */
+
+.modal{
+    display:none;
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:100%;
+
+    background:rgba(
+        0,
+        0,
+        0,
+        0.4
+    );
+
+    justify-content:center;
+    align-items:center;
+}
+
+.modal-content{
+    background:white;
+
+    padding:30px;
+
+    border-radius:12px;
+
+    width:400px;
+
+    max-width:90%;
+}
+
+.modal-buttons{
+    margin-top:20px;
+
+    display:flex;
+
+    gap:10px;
+}
+
+.modal-danger{
+    border:none;
+
+    background:#dc3545;
+
+    color:white;
+
+    padding:10px 20px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+}
+
+.modal-normal{
+    border:none;
+
+    background:#0B4F5C;
+
+    color:white;
+
+    padding:10px 20px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+}
+
+.bottom-buttons{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:20px;
+}
+
+.quit-btn{
+    border:none;
+    background:#dc3545;
+    color:white;
+    padding:15px 25px;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.quit-btn:hover{
+    opacity:0.9;
+}

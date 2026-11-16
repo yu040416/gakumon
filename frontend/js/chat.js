@@ -14,6 +14,35 @@ const grade = params.get("grade");
 const unit = params.get("unit");
 
 /* =====================
+   理解度管理
+===================== */
+
+function getUnderstandingKey(){
+
+    return `understanding_${unit}`;
+
+}
+
+function getUnderstanding(){
+
+    return Number(
+        localStorage.getItem(
+            getUnderstandingKey()
+        )
+    ) || 0;
+
+}
+
+function saveUnderstanding(value){
+
+    localStorage.setItem(
+        getUnderstandingKey(),
+        Math.min(value, 100)
+    );
+
+}
+
+/* =====================
    単元名表示
 ===================== */
 
@@ -53,6 +82,29 @@ function sendMessage(){
     if(message === ""){
         return;
     }
+
+    let understanding =
+    getUnderstanding();
+
+    /* 理解度上昇 */
+    
+    if(message.length >= 10){
+    
+        understanding += 3;
+    
+    }
+    else{
+    
+        understanding += 1;
+    
+    }
+    
+    saveUnderstanding(
+        understanding
+    );
+    
+    updateUnderstandingText();
+    updateTestButton();
 
     addMessage(message, "user");
 
@@ -262,35 +314,43 @@ document
 const testButton =
     document.getElementById("testButton");
 
-/*
- 仮実装
 
- 単元の理解度
-*/
-let understanding = 5;
+function updateUnderstandingText(){
 
+    document
+        .getElementById(
+            "understandingText"
+        )
+        .textContent =
+        `理解度：${getUnderstanding()}%`;
+
+}
 
 /*
  テストボタン制御
 */
 updateTestButton();
-
+updateUnderstandingText();
 
 function updateTestButton(){
 
-    if(understanding >= 5){
+    const understanding =
+        getUnderstanding();
+
+    if(understanding >= 2){
 
         testButton.disabled = false;
 
         testButton.title =
             "";
 
-    }else{
+    }
+    else{
 
         testButton.disabled = true;
 
         testButton.title =
-            "理解度が不足しています";
+            "理解度5%以上で受験できます";
 
     }
 

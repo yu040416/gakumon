@@ -10,7 +10,46 @@
 </head>
 <body>
 
+    <!-- 確認ダイアログ -->
+
+<div
+    id="quitModal"
+    class="modal">
+
+    <div class="modal-content">
+
+        <p>
+            やめると、
+            ここまでの結果は消えます
+            （ノートは残ります）。
+        </p>
+
+        <div class="modal-buttons">
+
+            <button
+                id="confirmQuit"
+                class="modal-danger">
+
+                やめる
+
+            </button>
+
+            <button
+                id="cancelQuit"
+                class="modal-normal">
+
+                つづける
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
 <div class="content">
+    <!-- テスト終了 -->
 
     <!-- 進捗 -->
     <div class="progress-area">
@@ -99,6 +138,8 @@
 
     </div>
 
+    <div class="bottom-buttons">
+
     <button
         id="nextButton"
         class="next-btn">
@@ -106,6 +147,16 @@
         次の問題へ
 
     </button>
+
+    <button
+        id="quitButton"
+        class="quit-btn">
+
+        やめる
+
+    </button>
+
+</div>
 
 </div>
 
