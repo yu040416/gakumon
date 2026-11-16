@@ -93,3 +93,78 @@ body{
 .finish-btn:hover{
     opacity:0.9;
 }
+
+/* ===== スマホ・タブレット(幅760px以下) ===== */
+/* 左のメニューを、画面の下に出す */
+
+@media (max-width: 760px){
+
+    body{
+        flex-direction:column;
+        padding-bottom:72px; /* 下のメニューの高さ分 */
+    }
+
+    .sidebar{
+        position:fixed;
+        left:0;
+        right:0;
+        bottom:0;
+        z-index:10;
+        width:auto;
+        min-height:0;
+        padding:8px;
+        order:2;
+    }
+
+    .logo{
+        display:none;
+    }
+
+    .menu{
+        flex-direction:row;
+        gap:4px;
+    }
+
+    .menu a{
+        flex:1;
+        min-height:44px;
+        box-sizing:border-box;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        padding:4px;
+        font-size:13px;
+        text-align:center;
+    }
+
+    .content{
+        order:1;
+        min-width:0;
+        padding:20px 16px;
+    }
+
+    /* 教える画面の「学習中」と「学習終了」は、メニューの上に1行で出す */
+    .sidebar-footer{
+        order:-1;
+        margin:0 0 6px;
+        display:flex;
+        align-items:center;
+        gap:8px;
+    }
+
+    .save-status{
+        flex:1;
+        margin:0;
+        text-align:left;
+    }
+
+    .finish-btn{
+        width:auto;
+        min-height:40px;
+        padding:0 16px;
+    }
+
+    body:has(.sidebar-footer){
+        padding-bottom:128px;
+    }
+}

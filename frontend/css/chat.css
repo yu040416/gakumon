@@ -176,3 +176,16 @@
 .test-btn:hover{
     opacity:0.9;
 }
+
+/* ===== スマホ(幅760px以下) ===== */
+
+@media (max-width: 760px){
+
+    .chat-layout{
+        flex-direction:column;
+    }
+
+    .chat-box{
+        height:360px;
+    }
+}
