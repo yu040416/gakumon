@@ -7,7 +7,7 @@
 <!-- モンスターカード -->
 <div class="monster-card">
     <h3>{{ monster.name }}</h3>
-    <div class="exp-bar"><div class="exp-fill" style="width: {{ percent }}%"></div></div>
+    <div class="exp-bar"><div class="exp-fill" data-percent="{{ percent }}"></div></div>
     <p>経験値 {{ monster.exp }} / {{ monster.next_exp }}</p>
 </div>
 

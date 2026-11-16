@@ -72,3 +72,13 @@ h1{
 .grade-btn:hover{
     opacity:0.9;
 }
+
+
+/* ===== スマホ(幅760px以下) ===== */
+
+@media (max-width: 760px){
+
+    .grade-list{
+        grid-template-columns:1fr;
+    }
+}

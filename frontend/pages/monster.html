@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ガクモン - モンスター育成</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/monster.css">
+</head>
+
+<body>
+
+    <!-- サイドバー -->
+    <div class="sidebar">
+
+        <div class="logo">
+            ガクモン
+        </div>
+
+        <div class="menu">
+            <a href="home.html">ホーム</a>
+            <a href="monster.html" class="active">モンスター</a>
+            <a href="history.html">学習履歴</a>
+            <a href="zukan.html">図鑑</a>
+        </div>
+
+    </div>
+
+    <!-- メイン画面 -->
+    <main class="content">
+
+        <!-- ② 見出し -->
+        <h1>モンスターを育てる</h1>
+
+        <!-- ⑦ 単元の切り替え(JavaScriptでボタンを作る) -->
+        <div class="unit-tabs" id="unitTabs"></div>
+
+        <div class="monster-layout">
+
+            <!-- ③ モンスターの絵 -->
+            <div class="monster-picture" id="monsterPicture"></div>
+
+            <div class="monster-detail">
+
+                <!-- ④ 名前(8文字まで変更できる) -->
+                <div class="name-form">
+                    <label for="monsterName" class="name-label">名前</label>
+                    <input type="text" id="monsterName" class="name-input" maxlength="8">
+                    <button type="button" id="nameButton" class="name-btn">変更</button>
+                </div>
+                <p class="name-message" id="nameMessage"></p>
+
+                <!-- ⑤ 段階の表示(JavaScriptで作る) -->
+                <ol class="stage-list" id="stageList"></ol>
+
+                <!-- ⑥ 経験値バー -->
+                <div class="exp-area">
+                    <p class="exp-text" id="expText"></p>
+                    <div class="exp-bar">
+                        <div class="exp-fill" id="expFill"></div>
+                    </div>
+                </div>
+
+                <!-- ⑧ 教えるボタン -->
+                <a class="teach-btn" href="home.html">教える</a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <script src="../js/monster.js"></script>
+
+</body>
+
+</html>
