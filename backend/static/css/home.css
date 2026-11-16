@@ -1,0 +1,89 @@
+/* ===== タイトル ===== */
+
+h1{
+    color:#0B4F5C;
+    margin-bottom:25px;
+}
+
+/* ===== モンスターカード ===== */
+
+.monster-card{
+    background:white;
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:30px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.monster-card h3{
+    color:#0B4F5C;
+    margin-top:0;
+}
+
+.exp-bar{
+    width:100%;
+    height:20px;
+    background:#ddd;
+    border-radius:10px;
+    overflow:hidden;
+}
+
+.exp-fill{
+    width:40%;
+    height:100%;
+    background:#F2A33A;
+}
+
+/* ===== 学年カード ===== */
+
+.grade-list{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.grade-card{
+    background:white;
+    border-radius:12px;
+    padding:24px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.grade-card h3{
+    color:#0B4F5C;
+    font-size:30px;
+    margin-top:0;
+    margin-bottom:20px;
+}
+
+/* ===== 選択ボタン ===== */
+
+.grade-btn{
+    width:100%;
+    border:none;
+    background:#0B4F5C;
+    color:white;
+    padding:12px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.grade-btn:hover{
+    opacity:0.9;
+}
+
+/* ===== リンクをボタンとして使う ===== */
+
+.grade-btn{
+    display:block;
+    box-sizing:border-box;
+    text-align:center;
+    text-decoration:none;
+}
+
+@media (max-width: 760px){
+    .grade-list{
+        grid-template-columns:1fr;
+    }
+}
