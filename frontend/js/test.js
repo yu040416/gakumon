@@ -1,3 +1,4 @@
+
 const questions = [
     {
         question: "-3 + 5 = ?",
@@ -319,6 +320,26 @@ nextButton.addEventListener(
                     mistakes
                 )
             );
+
+            // =====================
+            // テスト回数をカウント
+            // =====================
+
+            let testCount =
+                Number(
+                    localStorage.getItem("testCount")
+                ) || 0;
+
+            testCount++;
+
+            localStorage.setItem(
+                "testCount",
+                testCount
+            );
+
+            // =====================
+            // 結果画面へ移動
+            // =====================
 
             location.href =
                 "result.html";

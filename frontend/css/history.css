@@ -1,0 +1,198 @@
+
+/* ===================================
+   全体
+=================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background-color: #E8F3F2;
+    font-family: "Meiryo", sans-serif;
+    color: #333333;
+}
+
+
+/* ===================================
+   メインコンテンツ
+=================================== */
+
+.main-content {
+    margin-left: 176px;
+    padding: 35px;
+    min-height: 100vh;
+}
+
+.main-content h1 {
+    font-size: 28px;
+    color: #0B4F5C;
+    margin-bottom: 30px;
+}
+
+
+/* ===================================
+   サマリーカード
+=================================== */
+
+.summary-container {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 35px;
+}
+
+.summary-card {
+    flex: 1;
+    background-color: #FFFFFF;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.summary-card h2 {
+    font-size: 16px;
+    font-weight: normal;
+    color: #0B4F5C;
+    margin: 0 0 15px;
+}
+
+.summary-card p {
+    font-size: 30px;
+    font-weight: bold;
+    color: #258A98;
+    margin: 0;
+}
+
+
+/* ===================================
+   学習履歴セクション
+=================================== */
+
+.history-section {
+    background-color: #FFFFFF;
+    padding: 25px;
+    margin-bottom: 30px;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.history-section h2 {
+    font-size: 20px;
+    color: #0B4F5C;
+    margin: 0 0 8px;
+}
+
+.section-description {
+    font-size: 13px;
+    color: #666666;
+    margin: 0 0 20px;
+}
+
+
+/* ===================================
+   最近の学習
+=================================== */
+
+.recent-history {
+    display: flex;
+    flex-direction: column;
+}
+
+.history-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 10px;
+    border-bottom: 1px solid #EEEEEE;
+    gap: 15px;
+}
+
+.history-item:last-child {
+    border-bottom: none;
+}
+
+.history-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.history-info strong {
+    font-size: 15px;
+    color: #0B4F5C;
+}
+
+.history-info span {
+    font-size: 12px;
+    color: #888888;
+}
+
+.history-score {
+    font-size: 18px;
+    font-weight: bold;
+    color: #258A98;
+    white-space: nowrap;
+}
+
+
+/* ===================================
+   折れ線グラフ
+=================================== */
+
+.graph-container {
+    position: relative;
+    width: 100%;
+    height: 320px;
+    padding: 15px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+}
+
+#accuracy-graph {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* ===================================
+   データがない場合
+=================================== */
+
+.no-data {
+    text-align: center;
+    color: #999999;
+    padding: 25px 10px;
+    font-size: 14px;
+}
+
+
+/* ===================================
+   スマートフォン対応
+=================================== */
+
+@media screen and (max-width: 768px) {
+
+    .main-content {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .summary-container {
+        flex-direction: column;
+    }
+
+    .summary-card {
+        width: 100%;
+    }
+
+    .history-section {
+        padding: 18px;
+    }
+
+    .graph-container {
+        height: 260px;
+        padding: 5px;
+    }
+
+}

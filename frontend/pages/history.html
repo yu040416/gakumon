@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ガクモン - 学習履歴</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/history.css">
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- JavaScript -->
+    <script src="../js/history.js" defer></script>
+</head>
+
+<body>
+
+    <!-- 既存のサイドバーはここに配置 -->
+
+    <main class="main-content">
+
+        <h1>学習履歴</h1>
+
+        <!-- サマリー -->
+        <section class="summary-container">
+
+            <div class="summary-card">
+                <h2>テストの回数</h2>
+                <p id="test-count">0回</p>
+            </div>
+
+            <div class="summary-card">
+                <h2>正答率</h2>
+                <p id="accuracy">--</p>
+            </div>
+
+        </section>
+
+
+        <!-- 最近の学習 -->
+        <section class="history-section">
+
+            <h2>最近の学習</h2>
+            <p class="section-description">新しい順に表示しています</p>
+
+            <div id="recent-history" class="recent-history">
+                <p>学習履歴を読み込んでいます...</p>
+            </div>
+
+        </section>
+
+
+        <!-- 単元ごとの結果 -->
+        <section class="history-section">
+
+            <h2>単元ごとの結果</h2>
+            <p class="section-description">
+                テストの正答率の推移
+            </p>
+
+            <div class="graph-container">
+                <canvas id="accuracy-graph"></canvas>
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
