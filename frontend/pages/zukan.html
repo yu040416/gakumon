@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ガクモン - 図鑑</title>
+
+    <!-- CSSファイルの読み込み -->
+    <link rel="stylesheet" href="../css/zukan.css">
+    <link rel="stylesheet" href="../css/common.css">
+</head>
+
+<body>
+
+    <div class="sidebar">
+
+        <div class="logo">
+            ガクモン
+        </div>
+
+        <div class="menu">
+            <a href="home.html">ホーム</a>
+            <a href="#">モンスター</a>
+            <a href="#">学習履歴</a>
+            <a href="zukan.html" class="active">図鑑</a>
+        </div>
+
+    </div>
+    <!-- メインコンテンツ -->
+    <main class="content">
+
+        <h1>図鑑</h1>
+
+        <p class="description">
+            これまでに出会ったモンスターを確認できます。
+            学習を進めて、新しいモンスターを解放しよう！
+        </p>
+
+
+        <!-- モンスター一覧 -->
+        <section class="monster-section">
+
+            <h2>モンスター一覧</h2>
+
+            <div class="monster-grid" id="monsterList">
+                <!-- JavaScriptでモンスターを表示 -->
+            </div>
+
+        </section>
+
+
+        <!-- 注意書き -->
+        <div class="notice">
+
+            <p>
+                ※ 未獲得のモンスターは「？」の画像で表示されます。
+            </p>
+
+            <p>
+                ※ モンスターの解放状態は数値をもとに判定します。
+            </p>
+
+        </div>
+
+
+        <!-- モンスターの成長段階 -->
+        <section class="growth-section">
+
+            <h2>モンスターの成長段階</h2>
+
+            <div class="growth-list">
+
+                <div class="growth-item" onclick="openModal('卵')">
+                    <img src="images/tamago.png" alt="卵">
+                    <p>卵</p>
+                </div>
+
+                <div class="growth-item" onclick="openModal('赤ちゃん')">
+                    <img src="images/baby.png" alt="赤ちゃん">
+                    <p>赤ちゃん</p>
+                </div>
+
+                <div class="growth-item" onclick="openModal('成長')">
+                    <img src="images/child.png" alt="成長">
+                    <p>成長</p>
+                </div>
+
+                <div class="growth-item" onclick="openModal('大人')">
+                    <img src="images/adult.png" alt="大人">
+                    <p>大人</p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- 詳細表示ダイアログ -->
+    <dialog id="monsterModal">
+
+        <div class="modal-content">
+
+            <h2 id="modalTitle">詳細</h2>
+
+            <p>
+                モンスターの詳細を表示する場所です。
+            </p>
+
+            <button onclick="closeModal()">閉じる</button>
+
+        </div>
+
+    </dialog>
+
+
+    <script>
+
+        // ==================================================
+        // 【仮実装】
+        // 本来はデータベースからモンスター情報を取得する
+        // ==================================================
+
+        const monsterData = [
+
+            {
+                id: 1,
+                name: "チビモン",
+                image: "images/chibimon.png",
+                currentValue: 15,
+                requiredValue: 10,
+                subject: "正の数・負の数"
+            },
+
+            {
+                id: 2,
+                name: "モンスターA",
+                image: "images/monsterA.png",
+                currentValue: 5,
+                requiredValue: 20,
+                subject: "文字式"
+            },
+
+            {
+                id: 3,
+                name: "モンスターB",
+                image: "images/monsterB.png",
+                currentValue: 35,
+                requiredValue: 30,
+                subject: "一次方程式"
+            }
+
+        ];
+
+
+        // ==================================================
+        // モンスターの表示処理
+        // ==================================================
+
+        function displayMonsters() {
+
+            const monsterList =
+                document.getElementById("monsterList");
+
+            monsterList.innerHTML = "";
+
+
+            monsterData.forEach(monster => {
+
+                // ------------------------------------------
+                // 【仮実装】
+                // 現在の数値と必要な数値を比較して解放判定
+                // DB接続後は取得した数値を使用する
+                // ------------------------------------------
+
+                const isUnlocked =
+                    monster.currentValue >= monster.requiredValue;
+
+
+                // 解放状態によって画像と名前を変更
+
+                const image = isUnlocked
+                    ? monster.image
+                    : "images/unknown.png";
+
+                const name = isUnlocked
+                    ? monster.name
+                    : "？？？";
+
+
+                // カードを作成
+
+                const card = document.createElement("div");
+
+                card.className = isUnlocked
+                    ? "monster-card"
+                    : "monster-card locked";
+
+
+                // カードの内容を設定
+
+                card.innerHTML = `
+                    <img
+                        src="${image}"
+                        alt="${name}"
+                        class="monster-image"
+                    >
+
+                    <h3>${name}</h3>
+
+                    <p>${monster.subject}</p>
+                `;
+
+
+                // 解放済みの場合だけ詳細画面を開く
+
+                if (isUnlocked) {
+
+                    card.addEventListener("click", function () {
+                        openModal(monster.name);
+                    });
+
+                }
+
+
+                monsterList.appendChild(card);
+
+            });
+
+        }
+
+
+        // ==================================================
+        // 詳細画面を開く処理
+        // ==================================================
+
+        function openModal(name) {
+
+            document.getElementById("modalTitle").textContent =
+                name;
+
+            document.getElementById("monsterModal").showModal();
+
+        }
+
+
+        // ==================================================
+        // 詳細画面を閉じる処理
+        // ==================================================
+
+        function closeModal() {
+
+            document.getElementById("monsterModal").close();
+
+        }
+
+
+        // ==================================================
+        // ページ読み込み時に実行
+        // ==================================================
+
+        displayMonsters();
+
+    </script>
+
+</body>
+
+</html>

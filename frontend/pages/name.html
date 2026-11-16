@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ガクモン</title>
+
+    <!-- CSSの読み込み -->
+    <link rel="stylesheet" href="../CSS/name.css">
+</head>
+<body>
+
+    <main class="container">
+
+        <!-- タイトル -->
+        <header class="header">
+            <div class="egg">
+                <div class="egg-dot"></div>
+            </div>
+
+            <div class="title-area">
+                <h1 class="title">ガクモン</h1>
+                <p>モンスターに教えて、テストを採点しよう</p>
+            </div>
+        </header>
+
+        <!-- ニックネーム入力 -->
+        <section class="nickname-card">
+            <h2 class="section-title">ニックネームを入力しよう！</h2>
+
+            <input
+                type="text"
+                id="nickname"
+                maxlength="10"
+                placeholder="ニックネーム（10文字以内）"
+            >
+
+            <p class="note">
+                ※あとから変更することもできます。
+            </p>
+        </section>
+
+        <!-- プライバシー説明 -->
+        <section class="privacy-card">
+            <div class="privacy-content">
+                <p>
+                    入力したニックネームは、画面上での表示に使用します。
+                </p>
+            </div>
+        </section>
+
+        <!-- スタートボタン -->
+        <div class="start-area">
+            <button
+                type="button"
+                class="start-button"
+                onclick="startApp()"
+            >
+                はじめる！
+            </button>
+        </div>
+
+        <footer class="footer-note">
+            <p>楽しく学んでモンスターを育てよう！</p>
+        </footer>
+
+    </main>
+
+    <!-- JavaScriptの読み込み -->
+    <script src="../js/name.js"></script>
+
+</body>
+</html>

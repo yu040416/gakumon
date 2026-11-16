@@ -1,0 +1,180 @@
+
+/* 全体 */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+    background-color: #F6FAFB;
+    font-family: "Meiryo", sans-serif;
+    color: #26383D;
+}
+
+/* メインコンテナ */
+.container {
+    width: 100%;
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 30px 25px;
+    background-color: transparent;
+    border-radius: 20px;
+    text-align: center;
+}
+
+/* ヘッダー */
+.header {
+    margin-bottom: 35px;
+}
+
+/* 卵のイラスト */
+.egg {
+    position: relative;
+    width: 70px;
+    height: 87px;
+    margin: 0 auto 15px;
+    background-color: #FFF6DF;
+    border: 3px solid #0B4F5C;
+    border-radius: 50%;
+    transform: rotate(-5deg);
+}
+
+/* 卵の模様 */
+.egg-dot {
+    position: absolute;
+    top: 25px;
+    left: 15px;
+    width: 10px;
+    height: 10px;
+    background-color: #F6A333;
+    border-radius: 50%;
+    box-shadow:
+        22px 22px 0 #F6A333,
+        20px -7px 0 -2px #F6A333;
+}
+
+/* タイトル */
+.title-area {
+    margin-top: 10px;
+}
+
+.title {
+    margin: 0;
+    color: #0B4F5C;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.title-area p {
+    margin-top: 10px;
+    color: #496873;
+    font-size: 14px;
+}
+
+/* ニックネーム入力カード */
+.nickname-card {
+    margin-bottom: 16px;
+    padding: 20px 16px;
+    background-color: #FFFFFF;
+    border: 1px solid #DCE9E9;
+    border-radius: 13px;
+}
+
+/* 見出し */
+.section-title {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #26383D;
+    font-size: 16px;
+}
+
+/* 入力欄 */
+#nickname {
+    width: 100%;
+    padding: 11px;
+    background-color: #FFFFFF;
+    border: 1px solid #C8DEDE;
+    border-radius: 9px;
+    font-size: 14px;
+    outline: none;
+}
+
+#nickname:focus {
+    border-color: #0B4F5C;
+}
+
+/* 注意書き */
+.note {
+    margin-bottom: 0;
+    color: #496873;
+    font-size: 11px;
+    text-align: left;
+}
+
+/* プライバシーカード */
+.privacy-card {
+    margin-bottom: 16px;
+    padding: 15px;
+    background-color: #E9F3F2;
+    border: 1px solid #D9E9E7;
+    border-radius: 12px;
+}
+
+.privacy-content p {
+    margin: 0;
+    color: #26383D;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+/* スタートボタン */
+.start-area {
+    margin: 25px 0;
+}
+
+.start-button {
+    width: 65%;
+    padding: 13px;
+    background-color: #0B4F5C;
+    border: none;
+    border-radius: 9px;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.start-button:hover {
+    background-color: #146575;
+}
+
+/* フッター */
+.footer-note {
+    margin-top: 25px;
+    color: #496873;
+    font-size: 11px;
+}
+
+/* スマートフォン対応 */
+@media screen and (max-width: 600px) {
+
+    body {
+        padding: 10px;
+    }
+
+    .container {
+        margin: 10px auto;
+        padding: 25px 18px;
+    }
+
+    .title {
+        font-size: 28px;
+    }
+
+    .section-title {
+        font-size: 15px;
+    }
+}
+

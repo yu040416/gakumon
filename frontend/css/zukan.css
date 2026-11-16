@@ -1,0 +1,302 @@
+
+/* ========================================
+   全体設定
+======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    font-family: "Meiryo", sans-serif;
+    background-color: #E8F3F2;
+    color: #333333;
+}
+
+
+/* ========================================
+   サイドバー
+======================================== */
+
+.sidebar {
+    width: 220px;
+    min-height: 100vh;
+    background-color: #0B4F5C;
+    color: white;
+    padding: 20px;
+    flex-shrink: 0;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.menu a {
+    display: block;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.2s;
+}
+
+.menu a:hover {
+    background-color: #176C7A;
+}
+
+.menu a.active {
+    background-color: #258A98;
+    font-weight: bold;
+}
+
+
+/* ========================================
+   メインコンテンツ
+======================================== */
+
+.content {
+    flex: 1;
+    padding: 30px;
+    min-width: 0;
+}
+
+h1 {
+    color: #0B4F5C;
+    margin-top: 0;
+}
+
+.description {
+    margin-bottom: 30px;
+    line-height: 1.7;
+}
+
+
+/* ========================================
+   モンスター一覧
+======================================== */
+
+.monster-section {
+    margin-bottom: 30px;
+}
+
+.monster-section h2 {
+    color: #0B4F5C;
+    margin-bottom: 20px;
+}
+
+.monster-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+
+/* ========================================
+   モンスターカード
+======================================== */
+
+.monster-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.monster-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+.monster-card h3 {
+    margin: 10px 0;
+    color: #0B4F5C;
+}
+
+.monster-card p {
+    margin: 0;
+    color: #666666;
+    font-size: 14px;
+}
+
+
+/* ========================================
+   モンスター画像
+======================================== */
+
+.monster-image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    margin-bottom: 5px;
+}
+
+
+/* ========================================
+   未獲得モンスター
+======================================== */
+
+.monster-card.locked {
+    background-color: #EEEEEE;
+    color: #888888;
+    cursor: default;
+}
+
+.monster-card.locked:hover {
+    transform: none;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.monster-card.locked h3 {
+    color: #888888;
+}
+
+
+/* ========================================
+   注意書き
+======================================== */
+
+.notice {
+    background-color: #D4EAE8;
+    border-left: 5px solid #258A98;
+    padding: 15px 20px;
+    border-radius: 6px;
+    margin-bottom: 40px;
+}
+
+.notice p {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+
+/* ========================================
+   成長段階
+======================================== */
+
+.growth-section h2 {
+    color: #0B4F5C;
+    margin-bottom: 20px;
+}
+
+.growth-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.growth-item {
+    background-color: white;
+    border-radius: 12px;
+    padding: 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.growth-item:hover {
+    transform: translateY(-4px);
+}
+
+.growth-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+
+.growth-item p {
+    margin-bottom: 0;
+    font-weight: bold;
+    color: #0B4F5C;
+}
+
+
+/* ========================================
+   ダイアログ
+======================================== */
+
+dialog {
+    border: none;
+    border-radius: 12px;
+    padding: 0;
+    width: 350px;
+    max-width: calc(100% - 30px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    padding: 25px;
+    text-align: center;
+}
+
+.modal-content h2 {
+    color: #0B4F5C;
+}
+
+.modal-content button {
+    background-color: #0B4F5C;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.modal-content button:hover {
+    background-color: #176C7A;
+}
+
+
+/* ========================================
+   スマートフォン対応
+======================================== */
+
+@media screen and (max-width: 768px) {
+
+    body {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        min-height: auto;
+    }
+
+    .logo {
+        margin-bottom: 15px;
+    }
+
+    .menu {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .content {
+        padding: 20px;
+    }
+
+    .monster-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .growth-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
