@@ -16,13 +16,20 @@ body{
     color:white;
     padding:20px;
     box-sizing:border-box;
+
+    display:flex;
+    flex-direction:column;
 }
+
+/* ===== ロゴ ===== */
 
 .logo{
     font-size:28px;
     font-weight:bold;
     margin-bottom:30px;
 }
+
+/* ===== メニュー ===== */
 
 .menu{
     display:flex;
@@ -48,9 +55,41 @@ body{
     font-weight:bold;
 }
 
-/* ===== 共通コンテンツ領域 ===== */
+/* ===== メインエリア ===== */
 
 .content{
     flex:1;
     padding:30px;
+}
+
+/* ===== サイドバー下部 ===== */
+
+.sidebar-footer{
+    margin-top:auto;
+}
+
+/* ===== 保存状態 ===== */
+
+.save-status{
+    text-align:center;
+    color:white;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+/* ===== 学習終了ボタン ===== */
+
+.finish-btn{
+    width:100%;
+    border:none;
+    background:#F2A33A;
+    color:white;
+    padding:12px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+.finish-btn:hover{
+    opacity:0.9;
 }

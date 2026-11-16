@@ -8,7 +8,6 @@
     <title>ガクモン - 教える</title>
 
     <link rel="stylesheet" href="../css/common.css">
-
     <link rel="stylesheet" href="../css/chat.css">
 </head>
 
@@ -28,6 +27,21 @@
             <a href="library.html">図鑑</a>
         </div>
 
+        <!-- サイドバー下部 -->
+        <div class="sidebar-footer">
+
+            <div id="saveStatus" class="save-status">
+                ● 学習中
+            </div>
+
+            <button
+                id="finishButton"
+                class="finish-btn">
+                学習終了
+            </button>
+
+        </div>
+
     </div>
 
     <!-- メイン画面 -->
@@ -36,12 +50,14 @@
         <!-- ヘッダー -->
         <div class="chat-header">
 
-            <button class="back-btn">
+            <button
+                class="back-btn"
+                id="backButton">
                 戻る
             </button>
 
             <div class="subject-title">
-                正の数・負の数
+                読み込み中...
             </div>
 
         </div>
@@ -54,14 +70,14 @@
         <!-- レイアウト -->
         <div class="chat-layout">
 
-            <!-- チャット部分 -->
+            <!-- チャットエリア -->
             <div class="chat-main">
 
                 <div class="chat-box" id="chatBox">
 
                     <div class="message monster">
                         <div class="bubble">
-                            正の数・負の数について教えて！
+                            何を教えてくれるの？
                         </div>
                     </div>
 
@@ -72,8 +88,8 @@
 
                     <button class="symbol-btn">+</button>
                     <button class="symbol-btn">-</button>
-                    <button class="symbol-btn">*</button>
-                    <button class="symbol-btn">/</button>
+                    <button class="symbol-btn">×</button>
+                    <button class="symbol-btn">÷</button>
                     <button class="symbol-btn">=</button>
                     <button class="symbol-btn">( )</button>
                     <button class="symbol-btn">x</button>
@@ -82,7 +98,7 @@
 
                 </div>
 
-                <!-- 入力エリア -->
+                <!-- 入力欄 -->
                 <div class="input-area">
 
                     <input
@@ -101,9 +117,15 @@
 
                 <!-- テストボタン -->
                 <div class="test-area">
-                    <button class="test-btn">
+
+                    <button
+                        class="test-btn"
+                        id="testButton">
+
                         テストを受けさせる
+
                     </button>
+
                 </div>
 
             </div>
@@ -115,9 +137,12 @@
 
                     <h3>ノート</h3>
 
-                    <ul>
-                        <li>負の数は0より小さい数</li>
-                        <li>-3 + 5 = 2</li>
+                    <ul id="noteList">
+
+                        <li>
+                            教えた内容がここにまとめられます
+                        </li>
+
                     </ul>
 
                 </div>
@@ -131,4 +156,5 @@
     <script src="../js/chat.js"></script>
 
 </body>
+
 </html>

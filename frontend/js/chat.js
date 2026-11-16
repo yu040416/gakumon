@@ -4,13 +4,20 @@ const chatBox = document.getElementById("chatBox");
 
 let isDirty = false;
 
-/* 単元名取得 */
+/* =====================
+   URLパラメータ取得
+===================== */
 
 const params = new URLSearchParams(window.location.search);
 
+const grade = params.get("grade");
 const unit = params.get("unit");
 
-if(unit){
+/* =====================
+   単元名表示
+===================== */
+
+if (unit) {
 
     document.querySelector(".subject-title").textContent = unit;
 
@@ -19,9 +26,15 @@ if(unit){
 
     firstMessage.textContent =
         `${unit}について教えて！`;
+
+    localStorage.setItem("currentGrade", grade);
+    localStorage.setItem("currentUnit", unit);
 }
 
-/* メッセージ送信 */
+
+/* =====================
+   メッセージ送信
+===================== */
 
 sendButton.addEventListener("click", sendMessage);
 
@@ -41,27 +54,33 @@ function sendMessage(){
         return;
     }
 
-    addMessage(message,"user");
+    addMessage(message, "user");
 
     chatInput.value = "";
 
     isDirty = true;
+
+    document.getElementById("saveStatus")
+        .textContent = "● 学習中";
 
     setTimeout(() => {
 
         let reply;
 
         if(message.includes("負の数")){
-            reply =
-                "負の数って0より小さい数なんだね！";
+
+            reply = "負の数って0より小さい数なんだね！";
+
         }
         else if(message.includes("正の数")){
-            reply =
-                "正の数は0より大きい数かな？";
+
+            reply = "正の数は0より大きい数かな？";
+
         }
         else if(message.includes("文字式")){
-            reply =
-                "文字式って数字の代わりに文字を使うんだね！";
+
+            reply = "文字式って数字の代わりに文字を使うんだね！";
+
         }
         else{
 
@@ -76,21 +95,24 @@ function sendMessage(){
             reply =
                 responses[
                     Math.floor(
-                        Math.random() *
-                        responses.length
+                        Math.random() * responses.length
                     )
                 ];
+
         }
 
-        addMessage(reply,"monster");
+        addMessage(reply, "monster");
 
-    },500);
+    }, 500);
 
 }
 
-/* 吹き出し追加 */
 
-function addMessage(text,type){
+/* =====================
+   吹き出し追加
+===================== */
+
+function addMessage(text, type){
 
     const messageDiv =
         document.createElement("div");
@@ -110,9 +132,13 @@ function addMessage(text,type){
 
     chatBox.scrollTop =
         chatBox.scrollHeight;
+
 }
 
-/* 記号ボタン */
+
+/* =====================
+   記号ボタン
+===================== */
 
 document
 .querySelectorAll(".symbol-btn")
@@ -120,8 +146,7 @@ document
 
     button.addEventListener("click", () => {
 
-        chatInput.value +=
-            button.textContent;
+        chatInput.value += button.textContent;
 
         chatInput.focus();
 
@@ -129,16 +154,103 @@ document
 
 });
 
-/* 学習終了 */
+
+/* =====================
+   保存処理
+===================== */
+
+function saveChat(){
+
+    if(!isDirty){
+
+        document.getElementById("saveStatus")
+            .textContent = "✓ 保存済み";
+
+        return;
+    }
+
+    document.getElementById("saveStatus")
+        .textContent = "⟳ 保存中...";
+
+    setTimeout(() => {
+
+        document.getElementById("saveStatus")
+            .textContent = "✓ 保存済み";
+
+        isDirty = false;
+
+    }, 1000);
+
+}
+
+
+/* =====================
+   戻るボタン
+===================== */
 
 document
-.querySelector(".test-btn")
+.getElementById("backButton")
 .addEventListener("click", () => {
 
-    alert(
-        "会話履歴を保存しました。\nノートを更新します。"
-    );
+    saveChat();
 
-    location.href = "home.html";
+    const currentGrade =
+        localStorage.getItem("currentGrade");
+
+    setTimeout(() => {
+
+        location.href =
+            `grade${currentGrade}.html`;
+
+    }, 1000);
+
+});
+
+
+/* =====================
+   学習終了ボタン
+===================== */
+
+document
+.getElementById("finishButton")
+.addEventListener("click", () => {
+
+    saveChat();
+
+    setTimeout(() => {
+
+        alert(
+            "会話履歴を保存しました。\nノートを更新します。"
+        );
+
+        location.href = "home.html";
+
+    }, 1000);
+
+});
+
+
+/* =====================
+   サイドバー移動時
+===================== */
+
+document
+.querySelectorAll(".menu a")
+.forEach(link => {
+
+    link.addEventListener("click", (e) => {
+
+        e.preventDefault();
+
+        saveChat();
+
+        setTimeout(() => {
+
+            location.href =
+                link.getAttribute("href");
+
+        }, 1000);
+
+    });
 
 });
