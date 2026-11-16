@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>単元テスト</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/test.css">
+</head>
+<body>
+
+<div class="content">
+
+    <!-- 進捗 -->
+    <div class="progress-area">
+
+        <div>
+            単元テスト
+            <span id="questionCount">1 / 5問</span>
+        </div>
+
+        <div class="progress-bar">
+            <div
+                id="progressFill"
+                class="progress-fill">
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 問題 -->
+
+    <div class="question-card">
+
+        <p>問題</p>
+
+        <h1 id="questionText">
+            -3 + 5 = ?
+        </h1>
+
+    </div>
+
+    <!-- モンスター回答 -->
+
+    <div class="answer-card">
+
+        <h3>モンスターの答え</h3>
+
+        <h2 id="monsterAnswer">
+            答え：2
+        </h2>
+
+        <p id="monsterReason">
+            考え方：ノートを参考にしました
+        </p>
+
+    </div>
+
+    <!-- 採点 -->
+
+    <div class="judge-buttons">
+
+        <button
+            id="correctBtn"
+            class="judge-btn correct">
+
+            ○
+
+        </button>
+
+        <button
+            id="wrongBtn"
+            class="judge-btn wrong">
+
+            ×
+
+        </button>
+
+    </div>
+
+    <!-- 理由選択 -->
+
+    <div
+        id="reasonArea"
+        class="reason-area">
+
+        <button class="reason-btn">
+            計算ミス
+        </button>
+
+        <button class="reason-btn">
+            考え方が違う
+        </button>
+
+        <button class="reason-btn">
+            教えていない内容
+        </button>
+
+    </div>
+
+    <button
+        id="nextButton"
+        class="next-btn">
+
+        次の問題へ
+
+    </button>
+
+</div>
+
+<script src="../js/test.js"></script>
+
+</body>
+</html>

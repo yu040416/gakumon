@@ -1,0 +1,45 @@
+.result-card{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    margin-bottom:20px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.score-area{
+    margin-top:20px;
+}
+
+.mistake-card{
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+.mistake-item{
+    border-bottom:1px solid #ddd;
+    padding:15px 0;
+}
+
+.mistake-item:last-child{
+    border-bottom:none;
+}
+
+.button-area{
+    margin-top:30px;
+}
+
+.home-btn{
+    width:200px;
+    padding:15px;
+    background:#0B4F5C;
+    color:white;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+}
+
+.home-btn:hover{
+    opacity:0.9;
+}

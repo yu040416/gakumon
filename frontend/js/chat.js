@@ -254,3 +254,55 @@ document
     });
 
 });
+
+/* =====================
+   テストボタン
+===================== */
+
+const testButton =
+    document.getElementById("testButton");
+
+/*
+ 仮実装
+
+ 単元の理解度
+*/
+let understanding = 5;
+
+
+/*
+ テストボタン制御
+*/
+updateTestButton();
+
+
+function updateTestButton(){
+
+    if(understanding >= 5){
+
+        testButton.disabled = false;
+
+        testButton.title =
+            "";
+
+    }else{
+
+        testButton.disabled = true;
+
+        testButton.title =
+            "理解度が不足しています";
+
+    }
+
+}
+
+testButton.addEventListener("click", () => {
+
+    if(testButton.disabled){
+        return;
+    }
+
+    location.href = "test.html";
+
+});
+

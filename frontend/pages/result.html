@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>テスト結果</title>
+
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/result.css">
+</head>
+<body>
+
+<div class="content">
+
+    <div class="result-card">
+
+        <h1>テスト結果</h1>
+
+        <div class="score-area">
+
+            <h2>
+                モンスター正解数：
+                <span id="monsterScore">
+                    0
+                </span>
+                / 5
+            </h2>
+
+            <h2>
+                経験値：
+                <span id="expPoint">
+                    0
+                </span>
+                EXP
+            </h2>
+
+        </div>
+
+    </div>
+
+    <div class="mistake-card">
+
+        <h2>間違えた問題</h2>
+
+        <div id="mistakeList">
+
+        </div>
+
+    </div>
+
+    <div class="button-area">
+
+        <button
+            id="homeButton"
+            class="home-btn">
+
+            ホームへ戻る
+
+        </button>
+
+    </div>
+
+</div>
+
+<script src="../js/result.js"></script>
+
+</body>
+</html>
