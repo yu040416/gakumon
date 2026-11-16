@@ -183,6 +183,40 @@ function render(){
 
         expFill.style.width = "100%";
     }
+
+        /* 教えるボタン */
+
+    const gradeMap = {
+
+    "正負の数": 1,
+    "文字と式": 1,
+    "方程式": 1,
+    "比例と反比例": 1,
+    "平面図形": 1,
+    "空間図形": 1,
+    "資料の分析と活用": 1,
+
+    "式の計算": 2,
+    "連立方程式": 2,
+    "1次関数": 2,
+    "平行と合同": 2,
+    "三角形と四角形": 2,
+    "確率": 2,
+
+    "多項式": 3,
+    "平方根": 3,
+    "2次方程式": 3,
+    "関数": 3,
+    "相似な図形": 3,
+    "円": 3,
+    "三平方の定理": 3,
+    "標本調査": 3
+};
+
+    document.getElementById(
+        "teachButton"
+    ).href =
+        `chat.html?grade=${gradeMap[currentUnit]}&unit=${encodeURIComponent(currentUnit)}`;
 }
 
 /* ===== ④ 名前を変える ===== */
