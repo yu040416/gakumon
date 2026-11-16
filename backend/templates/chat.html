@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% block title %}教える{% endblock %}
+{% block css %}<link rel="stylesheet" href="{{ url_for('static', filename='css/chat.css') }}">{% endblock %}
+{% block content %}
+<div class="chat-header">
+    <a class="back-btn" href="{{ url_for('grade', grade=back) }}">戻る</a>
+    <div class="subject-title">{{ unit }}</div>
+</div>
+
+<div class="monster-info"><h3>チビモン</h3></div>
+
+<div class="chat-layout">
+    <div class="chat-main">
+        <div class="chat-box" id="chatBox">
+            <div class="message monster">
+                <div class="bubble">{{ unit }}について教えて！</div>
+            </div>
+        </div>
+
+        <!-- 記号ボタン(data-insert が入力欄に入る) -->
+        <div class="symbol-area">
+            <button type="button" class="symbol-btn" data-insert="＋" aria-label="たす">＋</button>
+            <button type="button" class="symbol-btn" data-insert="−" aria-label="ひく">−</button>
+            <button type="button" class="symbol-btn" data-insert="×" aria-label="かける">×</button>
+            <button type="button" class="symbol-btn" data-insert="÷" aria-label="わる">÷</button>
+            <button type="button" class="symbol-btn" data-insert="＝" aria-label="イコール">＝</button>
+            <button type="button" class="symbol-btn" data-insert="( )">( )</button>
+            <button type="button" class="symbol-btn" data-insert="x">x</button>
+            <button type="button" class="symbol-btn" data-insert="x²">x²</button>
+            <button type="button" class="symbol-btn" data-insert="／">分数</button>
+            <button type="button" class="symbol-btn" data-insert="√">√</button>
+        </div>
+
+        <div class="input-area">
+            <input type="text" id="chatInput" class="chat-input" placeholder="モンスターに説明しよう" aria-label="説明を入力">
+            <button type="button" id="sendButton" class="send-btn">送信</button>
+        </div>
+
+        <div class="test-area">
+            <!-- 説明を3回以上送るまで押せない -->
+            <button type="button" id="testButton" class="test-btn" data-url="{{ url_for('test') }}" disabled>テストを受けさせる</button>
+            <p id="testHint" class="test-hint">あと3回教えると、テストを受けさせられるよ</p>
+        </div>
+    </div>
+
+    <aside class="note-area">
+        <div class="note-card">
+            <h3>ノート</h3>
+            <ul>
+                <li>負の数は0より小さい数</li>
+                <li>−3 ＋ 5 ＝ 2</li>
+            </ul>
+        </div>
+    </aside>
+</div>
+{% endblock %}
+{% block js %}<script src="{{ url_for('static', filename='js/chat.js') }}"></script>{% endblock %}

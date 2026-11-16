@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ガクモン - {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+    {% block css %}{% endblock %}
+</head>
+<body>
+    <!-- サイドバー(スマホでは下のメニューになる) -->
+    <nav class="sidebar">
+        <div class="logo">ガクモン</div>
+        <div class="menu">
+            {% set items = [("ホーム", "home"), ("モンスター", "monster"), ("学習履歴", "history"), ("図鑑", "library")] %}
+            {% for name, endpoint in items %}
+            <a href="{{ url_for(endpoint) }}" class="{{ 'active' if active == name else '' }}">{{ name }}</a>
+            {% endfor %}
+        </div>
+    </nav>
+
+    <main class="content">
+        {% block content %}{% endblock %}
+    </main>
+
+    {% block js %}{% endblock %}
+</body>
+</html>
