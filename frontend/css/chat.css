@@ -177,16 +177,6 @@
     opacity:0.9;
 }
 
-.test-btn:disabled{
-
-    background:#cccccc;
-    color:#666666;
-    cursor:not-allowed;
-
-    opacity:0.7;
-
-}
-
 /* ===== スマホ(幅760px以下) ===== */
 
 @media (max-width: 760px){
@@ -195,27 +185,7 @@
         flex-direction:column;
     }
 
-    /* 入力欄が下のメニューに隠れないよう、チャット欄の高さを画面の高さに合わせる */
     .chat-box{
-        height:calc(100vh - 500px);
-        min-height:160px;
-        max-height:360px;
-    }
-
-    .monster-info{
-        padding:8px 15px;
-        margin-bottom:12px;
-    }
-
-    .monster-info h3{
-        margin:0;
-    }
-
-    .chat-header{
-        margin-bottom:12px;
-    }
-
-    .test-area{
-        margin-top:12px;
+        height:360px;
     }
 }
