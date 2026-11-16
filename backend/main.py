@@ -1,4 +1,4 @@
-from flask import Flask, render_template, abort, request, redirect, url_for
+from flask import Flask, render_template, abort, request
 
 app = Flask(__name__)
 
@@ -53,55 +53,9 @@ def coming_soon(title, active):
     return render_template("coming_soon.html", active=active, title=title)
 
 
-# ===== W06 モンスター育成(仮のデータ。あとでDBにする) =====
-
-STAGES = ["卵", "赤ちゃん", "成長", "大人"]
-STAGE_KEYS = ["egg", "baby", "grow", "adult"]
-STAGE_EXP = [0, 30, 100, 180]  # 各段階になるのに必要な累計経験値
-MONSTER_UNITS = ["正負の数", "文字と式", "方程式"]
-
-DUMMY_MONSTERS = {
-    "正負の数": {"name": "チビモン", "exp": 40},
-    "文字と式": {"name": "タマゴ", "exp": 0},
-    "方程式": {"name": "タマゴ", "exp": 0},
-}
-
-
-def monster_view(unit):
-    """画面に出す値を計算する"""
-    m = DUMMY_MONSTERS[unit]
-    exp = m["exp"]
-    stage = max(i for i, need in enumerate(STAGE_EXP) if exp >= need)
-    if stage < 3:
-        lo, hi = STAGE_EXP[stage], STAGE_EXP[stage + 1]
-        percent = int((exp - lo) / (hi - lo) * 100)
-        rest = hi - exp
-    else:  # 大人は最大
-        hi, percent, rest = STAGE_EXP[3], 100, 0
-    return {"name": m["name"], "exp": exp, "stage": stage,
-            "stage_key": STAGE_KEYS[stage], "next_exp": hi,
-            "percent": percent, "rest": rest}
-
-
-@app.route("/monster", methods=["GET", "POST"])
+@app.route("/monster")
 def monster():
-    unit = request.values.get("unit", MONSTER_UNITS[0])
-    if unit not in DUMMY_MONSTERS:
-        abort(404)
-    message = ""
-    if request.method == "POST":
-        name = request.form.get("name", "").strip()
-        if name == "" or len(name) > 8:
-            message = "名前は1〜8文字で入れてね"
-        else:
-            DUMMY_MONSTERS[unit]["name"] = name
-            return redirect(url_for("monster", unit=unit, saved=1))
-    elif request.args.get("saved"):
-        message = "名前を変えたよ"
-    return render_template("monster.html", active="モンスター", unit=unit,
-                           units=MONSTER_UNITS, m=monster_view(unit),
-                           stages=STAGES, stage_keys=STAGE_KEYS,
-                           stage_exp=STAGE_EXP, message=message)
+    return coming_soon("モンスター育成(W06)", "モンスター")
 
 
 @app.route("/history")
