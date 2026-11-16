@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% from "_monster_svg.html" import monster_svg %}
+{% block title %}モンスター育成{% endblock %}
+{% block css %}<link rel="stylesheet" href="{{ url_for('static', filename='css/monster.css') }}">{% endblock %}
+{% block content %}
+<!-- ② 見出し -->
+<h1>モンスターを育てる</h1>
+
+<!-- ⑦ 単元の切り替え -->
+<div class="unit-tabs">
+    {% for u in units %}
+    <a class="unit-tab {{ 'selected' if u == unit else '' }}" href="{{ url_for('monster', unit=u) }}">{{ u }}</a>
+    {% endfor %}
+</div>
+
+<div class="monster-layout">
+    <!-- ③ モンスターの絵 -->
+    <div class="monster-picture">
+        {{ monster_svg(m.stage_key, 200) }}
+    </div>
+
+    <div class="monster-detail">
+        <!-- ④ 名前(8文字まで変更できる) -->
+        <form class="name-form" method="post" action="{{ url_for('monster', unit=unit) }}">
+            <input type="hidden" name="unit" value="{{ unit }}">
+            <label for="monsterName" class="name-label">名前</label>
+            <input type="text" id="monsterName" name="name" class="name-input" value="{{ m.name }}" maxlength="8">
+            <button type="submit" class="name-btn">変更</button>
+        </form>
+        {% if message %}<p class="name-message">{{ message }}</p>{% endif %}
+
+        <!-- ⑤ 段階の表示 -->
+        <ol class="stage-list">
+            {% for s in stages %}
+            <li class="stage-item {{ 'current' if loop.index0 == m.stage else '' }}">
+                {{ monster_svg(stage_keys[loop.index0], 48) }}
+                <span class="stage-name">{{ s }}</span>
+                <span class="stage-exp">{{ stage_exp[loop.index0] }}〜</span>
+            </li>
+            {% endfor %}
+        </ol>
+
+        <!-- ⑥ 経験値バー -->
+        <div class="exp-area">
+            {% if m.stage < 3 %}
+            <p class="exp-text">次の段階まで あと {{ m.rest }} EXP({{ m.exp }} / {{ m.next_exp }})</p>
+            {% else %}
+            <p class="exp-text">大人になったよ!({{ m.exp }} EXP)</p>
+            {% endif %}
+            <div class="exp-bar"><div class="exp-fill" data-percent="{{ m.percent }}"></div></div>
+        </div>
+
+        <!-- ⑧ 教えるボタン -->
+        <a class="teach-btn" href="{{ url_for('home') }}">教える</a>
+    </div>
+</div>
+{% endblock %}
+{% block js %}<script src="{{ url_for('static', filename='js/monster.js') }}"></script>{% endblock %}

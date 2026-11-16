@@ -1,0 +1,25 @@
+{# モンスターの絵。stage は egg / baby / grow / adult #}
+{% macro monster_svg(stage, size=120) %}
+<svg width="{{ size }}" height="{{ size }}" viewBox="0 0 120 120" role="img" aria-label="モンスター({{ stage }})">
+{% if stage == "egg" %}
+    <ellipse cx="60" cy="68" rx="38" ry="48" fill="#FFF6E0" stroke="#0B4F5C" stroke-width="3"/>
+    <circle cx="46" cy="58" r="6" fill="#F2A33A"/><circle cx="72" cy="82" r="7" fill="#F2A33A"/><circle cx="68" cy="50" r="4" fill="#F2A33A"/>
+{% elif stage == "baby" %}
+    <ellipse cx="60" cy="72" rx="40" ry="38" fill="#BFE6DF" stroke="#0B4F5C" stroke-width="3"/>
+    <circle cx="46" cy="66" r="5" fill="#1B2A2F"/><circle cx="74" cy="66" r="5" fill="#1B2A2F"/>
+    <path d="M50 82 Q60 90 70 82" stroke="#1B2A2F" stroke-width="3" fill="none"/>
+{% elif stage == "grow" %}
+    <path d="M30 40 L38 14 L50 36 Z" fill="#8FD0C4" stroke="#0B4F5C" stroke-width="3"/>
+    <path d="M90 40 L82 14 L70 36 Z" fill="#8FD0C4" stroke="#0B4F5C" stroke-width="3"/>
+    <ellipse cx="60" cy="70" rx="42" ry="42" fill="#8FD0C4" stroke="#0B4F5C" stroke-width="3"/>
+    <circle cx="45" cy="64" r="5" fill="#1B2A2F"/><circle cx="75" cy="64" r="5" fill="#1B2A2F"/>
+    <path d="M48 82 Q60 92 72 82" stroke="#1B2A2F" stroke-width="3" fill="none"/>
+{% else %}
+    <path d="M28 44 L30 6 L52 34 Z" fill="#F2A33A" stroke="#0B4F5C" stroke-width="3"/>
+    <path d="M92 44 L90 6 L68 34 Z" fill="#F2A33A" stroke="#0B4F5C" stroke-width="3"/>
+    <ellipse cx="60" cy="72" rx="46" ry="42" fill="#5FB8A8" stroke="#0B4F5C" stroke-width="3"/>
+    <circle cx="44" cy="64" r="6" fill="#1B2A2F"/><circle cx="76" cy="64" r="6" fill="#1B2A2F"/>
+    <path d="M44 84 Q60 98 76 84" stroke="#1B2A2F" stroke-width="3" fill="none"/>
+{% endif %}
+</svg>
+{% endmacro %}
