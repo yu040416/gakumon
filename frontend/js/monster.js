@@ -127,6 +127,17 @@ function renderTabs(){
 
 function render(){
 
+   const savedExp =
+        Number(
+            localStorage.getItem(
+                `monsterExp_${currentUnit}`
+            )
+        ) || 0;
+
+    monsters[currentUnit].exp =
+        savedExp;
+
+
     const m = monsters[currentUnit];
     const stageIndex = getStageIndex(m.exp);
 
@@ -236,5 +247,5 @@ document.getElementById("nameButton").addEventListener("click", () => {
 
     message.textContent = "名前を変えたよ";
 });
-
+   
 render();

@@ -14,30 +14,30 @@ const grade = params.get("grade");
 const unit = params.get("unit");
 
 /* =====================
-   理解度管理
+   送信回数管理
 ===================== */
 
-function getUnderstandingKey(){
+function getSendCountKey(){
 
-    return `understanding_${unit}`;
+    return `sendCount_${unit}`;
 
 }
 
-function getUnderstanding(){
+function getSendCount(){
 
     return Number(
         localStorage.getItem(
-            getUnderstandingKey()
+            getSendCountKey()
         )
     ) || 0;
 
 }
 
-function saveUnderstanding(value){
+function saveSendCount(count){
 
     localStorage.setItem(
-        getUnderstandingKey(),
-        Math.min(value, 100)
+        getSendCountKey(),
+        count
     );
 
 }
@@ -83,27 +83,15 @@ function sendMessage(){
         return;
     }
 
-    let understanding =
-    getUnderstanding();
+    let sendCount =
+    getSendCount();
 
-    /* 理解度上昇 */
-    
-    if(message.length >= 10){
-    
-        understanding += 3;
-    
-    }
-    else{
-    
-        understanding += 1;
-    
-    }
-    
-    saveUnderstanding(
-        understanding
+    sendCount++;
+
+    saveSendCount(
+        sendCount
     );
-    
-    updateUnderstandingText();
+
     updateTestButton();
 
     addMessage(message, "user");
@@ -315,34 +303,21 @@ const testButton =
     document.getElementById("testButton");
 
 
-function updateUnderstandingText(){
-
-    document
-        .getElementById(
-            "understandingText"
-        )
-        .textContent =
-        `理解度：${getUnderstanding()}%`;
-
-}
-
 /*
  テストボタン制御
 */
 updateTestButton();
-updateUnderstandingText();
 
 function updateTestButton(){
 
-    const understanding =
-        getUnderstanding();
+    const sendCount =
+        getSendCount();
 
-    if(understanding >= 2){
+    if(sendCount >= 3){
 
         testButton.disabled = false;
 
-        testButton.title =
-            "";
+        testButton.title = "";
 
     }
     else{
@@ -350,7 +325,7 @@ function updateTestButton(){
         testButton.disabled = true;
 
         testButton.title =
-            "理解度5%以上で受験できます";
+            `あと${3 - sendCount}回説明すると受験できます`;
 
     }
 

@@ -18,14 +18,53 @@ document
    獲得経験値計算
 ===================== */
 
-/*
-1問10EXP
-*/
-const exp = score * 10;
+let exp = score * 10;
+
+if(score === 5){
+
+    exp += 10;
+
+}
+
+const unit =
+    localStorage.getItem(
+        "currentUnit"
+    )|| "正負の数";;
+
+const appliedKey =
+    `resultApplied_${unit}`;
+
+if(
+    sessionStorage.getItem(
+        appliedKey
+    ) !== "true"
+){
+
+    let monsterExp =
+        Number(
+            localStorage.getItem(
+                `monsterExp_${unit}`
+            )
+        ) || 0;
+
+    monsterExp += exp;
+
+    localStorage.setItem(
+        `monsterExp_${unit}`,
+        monsterExp
+    );
+
+    sessionStorage.setItem(
+        appliedKey,
+        "true"
+    );
+
+}
 
 document
     .getElementById("expPoint")
     .textContent = exp;
+
 
 
 /* =====================
@@ -127,8 +166,12 @@ document
     .getElementById("homeButton")
     .addEventListener("click", () => {
 
-        location.href =
-            "home.html";
+        sessionStorage.removeItem(
+    `resultApplied_${localStorage.getItem("currentUnit")}`
+    );
+
+location.href =
+    "home.html";
 
     });
 
